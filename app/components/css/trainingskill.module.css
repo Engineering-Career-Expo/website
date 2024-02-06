@@ -1,0 +1,144 @@
+.training_skills {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+.vector_swift {
+    position: absolute;
+    top: 100px;
+    right: -200px;
+    width: 280px;
+    height: 280px;
+    z-index: -1;
+}
+.vector_swift img {
+    max-width: 100%;
+    max-height: 100%;
+    object-position: center;
+    object-fit: contain;
+}
+
+.training_title {
+    color: var(--black-900);
+    font-size: 2rem;
+}
+
+.training_nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 10px 16px;
+    gap: 5px;
+    border-radius: 20px;
+    background: var(--ecx-colours-second-blue);
+    min-width: 45%;
+    position: relative;
+}
+
+.training_nav_bg {
+    position: absolute;
+    user-select: none;
+    left: 16px;
+    top: 10px;
+    background: var(--ecx-colours-dart);
+    border-radius: 12px;
+    width: calc(50% - 18px);
+    height: calc(100% - 20px);
+    transition: left 0.2s linear;
+}
+.training_nav_bg_soft {
+    left: 50%;
+}
+
+.training_nav_btn {
+    z-index: 1;
+    color: var(--white-900);
+    font-family: var(--font-varela-round);
+    font-size: 1.25rem;
+    background: none;
+    padding: 13px 57px;
+    border-radius: 12px;
+}
+
+.skills_ctn {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    gap: 48px;
+    width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    .training_skills {
+        gap: 32px;
+    }
+    .vector_swift {
+        max-width: 140px;
+        max-height: 140px;
+        top: -85px;
+        right: -90px;
+    }
+
+    .training_title {
+        font-size: 1.5rem;
+    }
+    .training_nav {
+        padding: 8px 10px;
+        border-radius: 14px;
+    }
+    .training_nav_btn {
+        font-size: 1rem;
+        padding: 10px 30px;
+        border-radius: 8px;
+    }
+    .training_nav_bg {
+        left: 10px;
+        top: 8px;
+        border-radius: 8px;
+        width: calc(50% - 10px);
+        height: calc(100% - 16px);
+    }
+    .training_nav_bg_soft {
+        left: 50%;
+    }
+    .skills_ctn {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 32px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .training_skills {
+        gap: 24px;
+    }
+    .training_title {
+        font-size: 1.25rem;
+    }
+    .training_nav {
+        padding: 6px 8px;
+        border-radius: 10px;
+    }
+    .training_nav_btn {
+        font-size: 0.75rem;
+        padding: 5px 20px;
+        border-radius: 6px;
+    }
+    .training_nav_bg {
+        left: 8px;
+        top: 5px;
+        border-radius: 6px;
+        width: calc(50% - 8px);
+        height: calc(100% - 10px);
+    }
+    .training_nav_bg_soft {
+        left: 50%;
+    }
+    .skills_ctn {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 20px;
+        column-gap: 24px;
+    }
+}

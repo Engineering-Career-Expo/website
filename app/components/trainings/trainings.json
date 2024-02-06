@@ -1,0 +1,77 @@
+[
+{
+   "isTechSkill": true,
+   "text": "Track:  Python",
+   "image": "/trainingskills/pytImg.png"
+},
+{
+    "isTechSkill": true,
+    "text": "Track:  UI/ UX Design",
+    "image": "/trainingskills/uiuxImg.png"
+},
+{
+    "isTechSkill": true,
+    "text":"Track:  Data Analytics",
+    "image":"/trainingskills/datalyticsImg.jpg"
+},
+{
+    "isTechSkill": true,
+    "text": "Track:  Game Development",
+    "image": "/trainingskills/gamedevImg.jpg"
+},
+{
+    "isTechSkill": true,
+    "text": "Track:  Mobile Development",
+    "image": "/trainingskills/mobiledevImg.jpg"
+},
+{
+    "isTechSkill": true,
+    "text": "Track:  3D Modelling & Animation",
+    "image": "/trainingskills/3danimeImg.jpg"
+},
+{
+    "isTechSkill": true,
+    "text": "Track:Front-end Web Development",
+    "image": "/trainingskills/frontendImg.jpg"
+},
+{
+    "isTechSkill": true,
+    "text": "Track:  Back-end Web Development",
+    "image": "/trainingskills/backendImg.png"
+},
+{
+    "isTechSkill": false,
+    "text": "Skill:  Time Management",
+    "image": "/trainingskills/timemgmtImg.jpg"
+},
+{
+    "isTechSkill": false,
+    "text": "Skill:  LinkedIn Leveraging",
+    "image": "/trainingskills/lnImg.jpg"
+},
+{
+    "isTechSkill": false,
+    "text": "Skill: Resume & CV Writing",
+    "image": "/trainingskills/resumewrtImg.jpg"
+},
+{
+    "isTechSkill": false,
+    "text": "Skill:  Communication &  Teamwork",
+    "image": "/trainingskills/comImg.jpg"
+},
+{
+    "isTechSkill": false,
+    "text": "Skill:  Leadership & Critical Thinking",
+    "image": "/trainingskills/leadershipImg.jpg"
+},
+{
+    "isTechSkill": false,
+    "text": "Skill:  Public Speaking & Presntation",
+    "image": "/trainingskills/publicspkImg.jpg"
+},
+{
+    "isTechSkill": false,
+    "text": "Skill: Negotiation & Conflict Resolution",
+    "image": "/trainingskills/negotiationImg.jpg"
+}
+]

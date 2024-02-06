@@ -1,102 +1,181 @@
+"use client"
+import FooterStyles from './css/footer.module.css';
+import styles from '../page.module.css'
 import Image from 'next/image';
 import Link from 'next/link';
-import { Nunito } from 'next/font/google';
-import FooterStyles from './css/footer.module.css';
-
-const nunito = Nunito({
-    weight: "400",
-    subsets: ["latin"],
-    display: "swap",
-    style: "normal",
-    adjustFontFallback: false
-})
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const Footer = () => {
-    return (
-        <footer  className={`${nunito.className} ${FooterStyles.footer}`}>
-            <div className={FooterStyles.footer_details}>
-                <Link href="/">
-                <Image src="/footer-logo.png" alt="ECX's footer logo." width={206.39} height={39.16} />
-                </Link>
-                <div className={FooterStyles.nav_links}>
-                    <div className={FooterStyles.lg}>
-                        <dl>
-                            <dt>Company</dt>
-                            <dd><Link href="#about">About ECX</Link></dd>
-                            <dd><Link href="#team">Our team</Link></dd>
-                            <dd><Link href="#programs">Our Programs</Link></dd>
-                        </dl>
-                        <dl>
-                            <dt>Resources</dt>
-                            <dd><Link href="https://ecxunilag.medium.com/">Blog</Link></dd>
-                            <dd><Link href="#">Join our community</Link></dd>
-                        </dl>
-                        <dl>
-                            <dt>Help and Support</dt>
-                            <dd><Link href="#">FAQs</Link></dd>
-                            <dd><Link href="#contact">Contact us</Link></dd>
-                            <dd><Link href="/Privacy-Policy">Privacy Policy</Link></dd>
-                        </dl>
-                     </div>
-                    <div className={FooterStyles.mb}>
-                            <Link href="#about">About ECX</Link>
-                            <Link href="#team">Our team</Link>
-                            <Link href="#programs">Our Programs</Link>
-                            <Link href="https://ecxunilag.medium.com/">Blog</Link>
-                            <Link href="#">Join our community</Link>
-                            <Link href="#">FAQs</Link>
-                            <Link href="#contact">Contact us</Link>
-                            <Link href="/Privacy-Policy">Privacy Policy</Link>
-                    </div>
-                    <div className={FooterStyles.mb}>
-                        
-                    </div>
-                </div>
-                <ul className={FooterStyles.social}>
-                    <li>
-                        <Link href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
-                            <path d="M28.1729 7.07914L24.2119 25.7588C23.9131 27.0772 23.1338 27.4053 22.0264 26.7842L15.9912 22.3369L13.0791 25.1377C12.7569 25.46 12.4873 25.7295 11.8662 25.7295L12.2998 19.583L23.4854 9.47562C23.9717 9.04203 23.3799 8.80179 22.7295 9.23539L8.90139 17.9424L2.94826 16.0791C1.65334 15.6748 1.6299 14.7842 3.21779 14.1631L26.503 5.19242C27.5811 4.78812 28.5244 5.43265 28.1729 7.07914Z" fill="#4D4D4D"/>
-                        </svg>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
-                            <path d="M26.3122 11.5686C26.2997 10.6449 26.1234 9.73032 25.7914 8.86586C25.5034 8.1367 25.0637 7.47448 24.5001 6.92154C23.9366 6.36859 23.2617 5.93706 22.5185 5.65453C21.6488 5.3342 20.73 5.16099 19.8013 5.14228C18.6055 5.08983 18.2264 5.0752 15.1909 5.0752C12.1555 5.0752 11.7664 5.0752 10.5793 5.14228C9.65097 5.16112 8.73261 5.33433 7.86331 5.65453C7.12005 5.93686 6.44505 6.36832 5.88148 6.92129C5.31791 7.47427 4.87818 8.13658 4.59043 8.86586C4.26331 9.71855 4.08716 10.6198 4.06961 11.5308C4.01616 12.7053 4 13.0773 4 16.0557C4 19.0341 4 19.4146 4.06961 20.5806C4.08825 21.4929 4.26352 22.393 4.59043 23.2479C4.87866 23.977 5.31872 24.639 5.88248 25.1918C6.44623 25.7445 7.1213 26.1758 7.86455 26.4581C8.73148 26.7913 9.64999 26.9769 10.5806 27.0069C11.7776 27.0593 12.1567 27.0752 15.1922 27.0752C18.2276 27.0752 18.6167 27.0752 19.8038 27.0069C20.7325 26.989 21.6513 26.8161 22.521 26.4959C23.2639 26.213 23.9387 25.7814 24.5022 25.2285C25.0657 24.6756 25.5056 24.0135 25.7939 23.2845C26.1208 22.4308 26.2961 21.5307 26.3147 20.6172C26.3682 19.4439 26.3843 19.0719 26.3843 16.0923C26.3818 13.1139 26.3818 12.7358 26.3122 11.5686ZM15.1835 21.688C12.0088 21.688 9.43697 19.1646 9.43697 16.0496C9.43697 12.9346 12.0088 10.4112 15.1835 10.4112C16.7075 10.4112 18.1692 11.0052 19.2468 12.0626C20.3245 13.12 20.9299 14.5542 20.9299 16.0496C20.9299 17.545 20.3245 18.9791 19.2468 20.0366C18.1692 21.094 16.7075 21.688 15.1835 21.688ZM21.1587 11.5174C20.9826 11.5175 20.8083 11.4836 20.6457 11.4176C20.483 11.3516 20.3352 11.2548 20.2108 11.1326C20.0863 11.0105 19.9876 10.8655 19.9203 10.7059C19.8531 10.5463 19.8185 10.3753 19.8187 10.2026C19.8187 10.03 19.8533 9.85913 19.9206 9.69968C19.9879 9.54024 20.0866 9.39537 20.211 9.27333C20.3353 9.1513 20.483 9.0545 20.6455 8.98846C20.808 8.92242 20.9821 8.88842 21.158 8.88842C21.3339 8.88842 21.5081 8.92242 21.6706 8.98846C21.8331 9.0545 21.9807 9.1513 22.1051 9.27333C22.2295 9.39537 22.3281 9.54024 22.3954 9.69968C22.4627 9.85913 22.4974 10.03 22.4974 10.2026C22.4974 10.9295 21.8983 11.5174 21.1587 11.5174Z" fill="#4D4D4D"/>
-                            <path d="M15.184 19.7109C17.2455 19.7109 18.9168 18.0711 18.9168 16.0483C18.9168 14.0255 17.2455 12.3857 15.184 12.3857C13.1224 12.3857 11.4512 14.0255 11.4512 16.0483C11.4512 18.0711 13.1224 19.7109 15.184 19.7109Z" fill="#4D4D4D"/>
-                        </svg>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="31" viewBox="0 0 35 31" fill="none">
-                            <path d="M32.3522 8.51745C31.9957 7.1625 30.9452 6.09539 29.6115 5.73325C27.194 5.0752 17.5 5.0752 17.5 5.0752C17.5 5.0752 7.80608 5.0752 5.3885 5.73325C4.05475 6.09545 3.0043 7.1625 2.64777 8.51745C2 10.9734 2 16.0974 2 16.0974C2 16.0974 2 21.2215 2.64777 23.6774C3.0043 25.0323 4.05475 26.055 5.3885 26.4171C7.80608 27.0752 17.5 27.0752 17.5 27.0752C17.5 27.0752 27.1939 27.0752 29.6115 26.4171C30.9452 26.055 31.9957 25.0323 32.3522 23.6774C33 21.2215 33 16.0974 33 16.0974C33 16.0974 33 10.9734 32.3522 8.51745ZM14.3295 20.7497V11.4452L22.4318 16.0975L14.3295 20.7497Z" fill="#4D4D4D"/>
-                        </svg>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
-                                <g clipPath="url(#clip0_3882_497)">
-                                    <path d="M25.1219 10.558C25.1397 10.7986 25.1397 11.0393 25.1397 11.2799C25.1397 18.6189 19.3656 27.0752 8.81221 27.0752C5.56092 27.0752 2.54063 26.1642 0 24.583C0.461947 24.6346 0.906066 24.6518 1.38579 24.6518C4.06849 24.6518 6.53808 23.7752 8.51017 22.2799C5.98732 22.2283 3.87309 20.6299 3.14465 18.4299C3.50001 18.4814 3.85532 18.5158 4.22845 18.5158C4.74367 18.5158 5.25893 18.447 5.7386 18.3268C3.10916 17.8111 1.13701 15.5767 1.13701 12.8783V12.8096C1.90095 13.2221 2.78935 13.4799 3.73091 13.5142C2.18521 12.5173 1.17256 10.8158 1.17256 8.89078C1.17256 7.85955 1.45677 6.91424 1.95427 6.08923C4.77916 9.45798 9.02539 11.6579 13.7868 11.8986C13.698 11.4861 13.6446 11.0565 13.6446 10.6268C13.6446 7.56735 16.203 5.0752 19.3832 5.0752C21.0355 5.0752 22.5279 5.74551 23.5761 6.82832C24.8731 6.58771 26.1167 6.12362 27.2183 5.4877C26.7918 6.77679 25.8858 7.8596 24.6954 8.54706C25.8503 8.4268 26.9696 8.11736 28 7.68771C27.2184 8.78767 26.2412 9.76732 25.1219 10.558Z" fill="#4D4D4D"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_3882_497">
-                                    <rect x="0.25" y="0.0751953" width="30.75" height="30" rx="8" fill="white"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                        </Link>
-                    </li>
-                </ul>
-            </div>
-            <div className={FooterStyles.copy}>
-                &copy; Copyright ECX 3.0. All Rights Reserved
-                <br />
-                Developed by&nbsp;<span className={FooterStyles.red}>ECX Website Team</span>
-            </div>
-        </footer>
-    )
+  const [formState, setFormState] = useState({
+    fullName: "",
+    email: "",
+    message: ""
+  })
+
+  const {fullName, email, message} = formState
+  const router = useRouter()
+
+  const handleChange = (event: any) => {
+    const {name, value} = event.target
+    setFormState(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault()
+    setFormState({ fullName: "", email: "", message: "" })
+    router.push('/')
+  }
+
+  return (
+    <footer className={`${styles.main__section} ${FooterStyles.footer}`}>
+      <div className={FooterStyles.footer__details}>
+        <Link href="/">
+          <Image
+            className={FooterStyles.footer_logo}
+            src="/ecx.svg"
+            alt="ECX's footer logo."
+            width={206.39}
+            height={39.16}
+          />
+        </Link>
+
+        <p className={FooterStyles.paragraph}>
+          Empowering the next generation of leaders
+        </p>
+
+        <ul className={FooterStyles.contact_links}>
+          <li className={FooterStyles.contact_link}>
+            <Link href='https://maps.app.goo.gl/kyZBS1zJkC3NnDUJ6' target='_blank'>
+              <Image
+                src='/icons/home.svg'
+                width={25}
+                height={25}
+                alt='address'
+              />
+              <span>
+                Faculty of engineering, Akoka, Lagos.
+              </span>
+            </Link>
+          </li>
+          <li className={FooterStyles.contact_link}>
+            <Link href='/' target='_blank'>
+              <Image
+                src='/icons/clock.svg'
+                width={25}
+                height={25}
+                alt='time'
+              />
+              <span>
+                Monday - Friday : 8am - 5pm, Lagos.
+              </span>
+            </Link>
+          </li>
+          <li className={FooterStyles.contact_link}>
+            <Link href='' target='_blank'>
+              <Image
+                src='/icons/phone.svg'
+                width={25}
+                height={25}
+                alt='phone'
+              />
+              <span>
+                + 234 812 773 4387
+              </span>
+            </Link>
+          </li>
+          <li className={FooterStyles.contact_link}>
+            <Link href='mailto:ecxunilag@gmail.com' target='_blank'>
+              <Image
+                src='/icons/email.svg'
+                width={25}
+                height={25}
+                alt='email'
+              />
+              <span>
+                ecxunilag@gmail.com
+              </span>
+            </Link>
+          </li>
+        </ul>
+
+        <h3 className={FooterStyles.socials__heading}>Socials</h3>
+        <ul className={FooterStyles.socials_links}>
+          <li className={FooterStyles.socials_link}>
+            <Link href='https://twitter.com/engcareerexpo' target='_blank'>
+              <Image
+                src='/icons/x.svg'
+                width={28}
+                height={28}
+                alt='twitter'
+              />
+            </Link>
+          </li>
+          <li className={FooterStyles.socials_link}>
+            <Link href='https://www.instagram.com/engcareerexpo' target='_blank'>
+              <Image
+                src='/icons/instagram.svg'
+                width={28}
+                height={28}
+                alt='instagram'
+              />
+            </Link>
+          </li>
+          <li className={FooterStyles.socials_link}>
+            <Link href='https://www.youtube.com/@engcareerexpo' target='_blank'>
+              <Image
+                src='/icons/youtube.svg'
+                width={28}
+                height={28}
+                alt='youtube'
+              />
+            </Link>
+          </li>
+          <li className={FooterStyles.socials_link}>
+            <Link href='https://t.me/ecxunilaggc' target='_blank'>
+              <Image
+                src='/icons/telegram.svg'
+                width={28}
+                height={28}
+                alt='telegram'
+              />
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      <div className={FooterStyles.footer__form_ctn}>
+        <h2>Contact Us</h2>
+        <form onSubmit={handleSubmit} className={FooterStyles.footer__form}>
+          <input
+            type='text'
+            name='fullName'
+            placeholder='Full name'
+            value={fullName}
+            onChange={handleChange}
+            />
+          <input
+            type='email'
+            name='email'
+            placeholder='Email address'
+            value={email}
+            onChange={handleChange}
+            />
+          <textarea
+            name='message'
+            placeholder='Message'
+            value={message}
+            onChange={handleChange}
+            />
+          <button className={FooterStyles.footer__button}>
+            Send Message
+          </button>
+        </form>
+      </div>
+      <div className={FooterStyles.copyright}>
+        Copyright ECX 4.0. All rights reserved 2024
+      </div>
+    </footer>
+  )
 }
 export default Footer;

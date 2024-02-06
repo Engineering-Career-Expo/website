@@ -1,110 +1,86 @@
 [
     {
         "serial": 1,
-        "isChair": true,
-        "team": "CHAIRPERSON",
-        "image": "/our-team/ifihan-oluseye.png",
+        "team": "",
+        "image": "/our-team/ifihan-oluseye.jpg",
         "fullName": "Ifihan Olusheye",
-        "title": "",
-        "color": "blue"
+        "title": "Chairperson"
     },
     {
         "serial": 2,
-        "isChair": true,
-        "team": "DEPUTY CHAIRPERSON",
-        "image": "/our-team/alabo-edwin.png",
+        "team": "",
+        "image": "/our-team/alabo-edwin.jpg",
         "fullName": "Alabo Edwin",
-        "title": "",
-        "color": "yellow"
+        "title": "Deputy Chairperson"
     },
     {
         "serial": 3,
-        "isChair": true,
-        "team": "DEPUTY CHAIRPERSON",
-        "image": "/our-team/olayinka-atobiloye.png",
+        "team": "",
+        "image": "/our-team/olayinka-atobiloye.jpg",
         "fullName": "Olayinka Atobiloye",
-        "title": "",
-        "color": "red"
+        "title": "Deputy Chairperson"
     },
     {
       "serial": 4,
-      "isChair": false,
-      "team": "Development Team",
-      "image": "/our-team/david-dada.png",
+      "team": "Development",
+      "image": "/our-team/david-dada.jpg",
       "fullName": "David Dada",
-      "title": "Team lead",
-      "color": "blue"
+      "title": "Team Lead"
     },
     {
         "serial": 5,
-        "isChair": false,
-        "team": "Quality Management Team",
-        "image": "/our-team/chiemezie-jacob.png",
+        "team": "Quality Management",
+        "image": "/our-team/chiemezie-jacob.jpg",
         "fullName": "Chiemezie Jacob",
-        "title": "Team lead",
-        "color": "yellow"
+        "title": "Team Lead"
     },
     {
         "serial": 6,
-        "isChair": false,
-        "team": "Training Team",
-        "image": "/our-team/ayodeji-abatan.png",
+        "team": "Training",
+        "image": "/our-team/ayodeji-abatan.jpg",
         "fullName": "Ayodeji Abatan",
-        "title": "Team lead",
-        "color": "red"
+        "title": "Team Lead"
     },
     {
       "serial": 7,
-      "isChair": false,
-      "team": "Welfare Team",
-      "image": "/our-team/oluwatomi-olagunju.png",
+      "team": "Welfare",
+      "image": "/our-team/oluwatomi-olagunju.jpg",
       "fullName": "Oluwatomi Olagunju",
-      "title": "Team lead",
-      "color": "blue"
+      "title": "Team Lead"
     },
     {
         "serial": 8,
-        "isChair": false,
-        "team": "Logistics Team",
-        "image": "/our-team/adeboye-samuel.png",
+        "team": "Logistics",
+        "image": "/our-team/adeboye-samuel.jpg",
         "fullName": "Adeboye Samuel",
-        "title": "Team lead",
-        "color": "yellow"
+        "title": "Team Lead"
     },
     {
         "serial": 9,
-        "isChair": false,
-        "team": "Sponsorships & Partnerships Team",
-        "image": "/our-team/toluwanimi-atunbi.png",
+        "team": "Sponsorships & Partnerships",
+        "image": "/our-team/toluwanimi-atunbi.jpg",
         "fullName": "Toluwanimi Atunbi",
-        "title": "Team lead",
-        "color": "red"
+        "title": "Team Lead"
     },
     {
         "serial": 10,
-        "isChair": false,
-        "team": "Content Team",
-        "image": "/our-team/hassanat-busari.png",
+        "team": "Content",
+        "image": "/our-team/hassanat-busari.jpg",
         "fullName": "Hassanat Busari",
-        "title": "Team lead",
-        "color": "blue"
+        "title": "Team Lead"
     },
     {
         "serial": 11,
-        "isChair": false,
-        "team": "Design Team",
-        "image": "/our-team/zainab-idris.png",
+        "team": "Design",
+        "image": "/our-team/zainab-idris.jpg",
         "fullName": "Zainab Idris",
-        "title": "Team lead",
-        "color": "yellow"
+        "title": "Team Lead"
     },
     {
         "serial": 12,
-        "isChair": false,
-        "team": "Social Media & Publicity Team",
-        "image": "/our-team/oluwatobi-oloyede.png",
+        "team": "Social Media & Publicity",
+        "image": "/our-team/oluwatobi-oloyede.jpg",
         "fullName": "Oluwatobi Oloyede",
-        "title": "Team lead",
-        "color": "red"
+        "title": "Team Lead"
     }
 ]

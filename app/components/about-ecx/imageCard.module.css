@@ -1,0 +1,55 @@
+.image_card {
+    grid-column: span 4 / span 4;
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 0.86;
+}
+
+.image_card_bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: -10px;
+    right: -10px;
+}
+.image_card_bg::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: -10px;
+    right: -10px;
+}
+.image_card_bg_dart {
+    background: var(--ecx-colours-dart);
+}
+.image_card_bg_dart::after {
+    border: 1px solid var(--ecx-colours-dart);
+}
+.image_card_bg_swift {
+    background: var(--ecx-colours-swift);
+}
+.image_card_bg_swift::after {
+    border: 1px solid var(--ecx-colours-swift);
+}
+.image_card_bg_ruby {
+    background: var(--ecx-colours-ruby);
+}
+.image_card_bg_ruby::after {
+    border: 1px solid var(--ecx-colours-ruby);
+}
+
+@media screen and (max-width: 1024px) {
+  .image_card {
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image_card {
+    max-width: 200px;
+  }
+}

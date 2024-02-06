@@ -1,35 +1,93 @@
 .page_head {
-  width: 100%;
-  background: #eee url(/banner.png) no-repeat 41% 0;
-  background-size: cover;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 182px;
-  padding: 0 min(8.33%, 120px);
-  padding-bottom: 241px;
+  gap: 100px;
+  color: var(--white-900);
+}
+.page_head, .footer {
+  background: var(--ecx-colours-second-blue);
+}
+.page_head, .page_section, .footer {
+  padding-left: min(30%, 150px);
+  padding-right: min(30%, 150px);
+}
+.page_head {
+  padding-top: 50px;
+  padding-bottom: 230px;
+}
+.page_section {
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+.team_community_container{
+    background: radial-gradient(160.67% 82.93% at 58.09% 38.42%, #2699E3 0%, #2681C0 0.01%, #272E4B 98.66%);
+    color: white;
+}
+.footer {
+  padding-top: 120px;
+  padding-bottom: 35px;
 }
 
 @media screen and (max-width: 1226px) {
   .page_head {
-    padding: 21px max(24px, 7%) 241px;
+    gap: 80px;
+    padding-top: 50px;
+    padding-bottom: 180px;
+  }
+  .page_head, .page_section, .footer {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .page_section {
+    gap: 120px;
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+  .footer {
+    padding-top: 100px;
+    padding-bottom: 30px;
   }
 }
-@media screen and (max-width: 1175px) {
+@media screen and (max-width: 1024px) {
   .page_head {
-    padding: 21px max(24px, 6%) 241px;
+    gap: 70px;
+    padding-top: 40px;
+    padding-bottom: 150px;
+  }
+  .page_head, .page_section, .footer {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .page_section {
+    gap: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .footer {
+    padding-top: 80px;
+    padding-bottom: 25px;
   }
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 768px) {
   .page_head {
-    gap: 20px;
-    padding: 21px max(24px, 6%) 241px;
+    padding-top: 30px;
+    padding-bottom: 100px;
   }
-}
-@media screen and (max-width: 500px) {
-  .page_head {
-    gap: 69.64px;
-    padding-bottom: 129px;
+  .page_head, .page_section, .footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .page_section {
+    gap: 80px;
+    padding-top: 80px;
+    padding-bottom: 100px;
+  }
+  .footer {
+    padding-top: 45px;
+    padding-bottom: 10px;
   }
 }
