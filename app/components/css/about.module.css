@@ -1,148 +1,132 @@
 .about {
-    background: var(--bg-white);
-    padding: 128px min(8.33%, 120px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 64px;
-}
-.about_title, .about_sub_title {
-    color: #3E3934;
-}
-.about_title {
-    text-align: center;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 100%;
-}
-.about_cards {
-    max-width: 1200px;
-    width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
     justify-content: space-between;
-    gap: 48px min(24px, 10%);
+    align-items: center;
+    gap: 75px;
 }
-.about_card {
-    max-width: 588px;
-    width: 100%;
-    padding: 32px;
+
+.about_content_ctn {
+    grid-column: span 6 / span 6;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 32px;
-    border-radius: 8px;
-    background: var(--white-900);
-    box-shadow: 0px 12px 27px 0px rgba(0, 0, 0, 0.10), 0px 48px 48px 0px rgba(0, 0, 0, 0.09), 0px -7px 70px 0px rgba(0, 0, 0, 0.05);
-}
-.about_texts {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-}
-.about_sub_title {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 131.25%;
-}
-.about_paragraph {
-    max-width: 450px;
-    width: 100%;
-    overflow: hidden;
-    color: var(--greys-006);
-    text-align: center;
-    text-overflow: ellipsis;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 160%;
-}
-.read_more_btn {
-    width: 136px;
-    padding: 18px 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border-radius: 8px;
-    color: var(--white-900);
-    font-size: 16px;
-    letter-spacing: -0.24px;
+    gap: 30px;
 }
 
-.bg_blue {
-    background: var(--ecx-colours-blue);
+.about_title {
+    font-size: 2rem;
+    font-family: var(--font-varela-round);
 }
-.bg_red {
-    background: var(--ecx-colours-dark-red);
+.about_nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-items: start;
+}
+.about_nav > button {
+    font-family: var(--font-varela-round);
+    font-size: 1.5rem;
+    background: none;
+    line-height: 200%;
+    border-bottom: 3px solid transparent;
+    color: var(--black-900);
+    white-space: nowrap;
+}
+.who-we-are :nth-child(1) {
+    color: var(--ecx-colours-dart);
+    border-bottom: 3px solid var(--ecx-colours-dart);
+}
+.mission :nth-child(2) {
+    color: var(--ecx-colours-swift);
+    border-bottom: 3px solid var(--ecx-colours-swift);
+}
+.vision :nth-child(3) {
+    color: var(--ecx-colours-ruby);
+    border-bottom: 3px solid var(--ecx-colours-ruby);
+}
+.paragraph {
+    font-size: 1.25rem;
+    height: 150px;
+}
+.lineBreak {
+    display: block;
+    margin: 10px 0;
+}
+
+.about_vector {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    z-index: -1;
+}
+.about_vector img {
+    max-width: 100%;
+    max-height: 100%;
+    object-position: center;
+    object-fit: contain;
+}
+
+.about_vector_ruby {
+    top: -160px;
+    right: -30px;
+}
+.about_vector_dart {
+    top: 400px;
+    left: -150px;
 }
 
 
-@media screen and (max-width: 1226px) {
+
+@media screen and (max-width: 1024px) {
     .about {
-        padding: 128px max(24px, 7%);
-    }
-}
-@media screen and (max-width: 1175px) {
-    .about {
-        padding: 128px max(59px, 6.5%);
-    }
-}
-@media screen and (max-width: 1100px) {
-    .about_cards {
-        flex-wrap: wrap;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
-        gap: 32px 0;
     }
-}
-@media screen and (max-width: 980px) {
-    .about {
-        gap: 20px;
-        padding: 128px max(59px, 6.5%);
-    }
-}
-@media screen and (max-width: 500px) {
-    .about {
-        gap: 20px;
-        padding: 48px max(59px, 6.5%) 50px;
-        gap: 48px;
-    }
-    .about_title {
-        font-size: 24px;
-    }
-    .about_cards {
-        gap: 18px;
-    }
-    .about_card {
-        padding: 24px;
+    .about_content_ctn {
+        align-items: center;
         gap: 24px;
     }
-    .about_card img {
-        max-width: 48px;
+    .about_title {
+        font-size: 1.75rem;
+    }
+    .about_nav {
         width: 100%;
-        height: auto;
+        justify-content: space-between;
     }
-    .about_texts {
-        gap: 12px;
+    .about_nav > button {
+        font-size: 1.25rem;
     }
-    .about_sub_title {
-        font-size: 18px;
-        line-height: 131.25%;
+    .paragraph {
+        font-size: 1.125rem;
     }
-    .about_paragraph {
-        font-size: 12px;
-        align-self: stretch;
+    .about_vector {
+        max-width: 130px;
+        max-height: 130px;
     }
-    .read_more_btn {
-        width: 117px;
-        gap: 6px;
-        padding: 13.5px 16px;
-        font-size: 14px;
-        letter-spacing: -0.21px;
+    .about_vector_ruby {
+        top: -70px;
+        right: -100px;
     }
-    .read_more_btn img {
-        width: 12px;
-        height: auto;
+    .about_vector_dart {
+        top: 180px;
+        left: -80px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about_title {
+        font-size: 1.25rem;
+        gap: 10px;
+    }
+    .about_nav {
+        display: flex;
+        gap: 20px;
+    }
+    .about_nav > button {
+        font-size: 1rem;
+    }
+    .paragraph {
+        font-size: 0.875rem;
     }
 }

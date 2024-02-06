@@ -1,12 +1,20 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Varela_Round } from 'next/font/google'
 
 const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
-  adjustFontFallback: false
- })
+  adjustFontFallback: false,
+  variable: '--font-inter'
+})
+const varela_round = Varela_Round({ 
+  weight: ['400'],
+  subsets: ['latin'],
+  display: 'swap',
+  adjustFontFallback: false,
+  variable: '--font-varela-round'
+})
 
 export const metadata: Metadata = {
   title: 'ECX website',
@@ -20,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.variable} ${varela_round.variable}`}>{children}</body>
     </html>
   )
 }

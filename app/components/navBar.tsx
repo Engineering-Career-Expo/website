@@ -1,125 +1,75 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Open_Sans } from "next/font/google";
 import navBarStyles from "./css/navBar.module.css";
-import { useState } from "react";
-
-const openSans = Open_Sans({
-    weight: "700",
-    style: ["normal"],
-    subsets: ["latin"],
-    display: "swap",
-    adjustFontFallback: false,
-});
+import { useEffect, useState } from "react";
 
 const NavBar = () => {
-    const [mbNavItems, setMbNavItems] = useState(false);
+  const [displayMenu, setDisplayMenu] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
-    return (
-        <nav className={`${openSans.className} ${navBarStyles.navBar}`}>
-            <Link href="/">
-                <Image
-                    src="/ecx.svg"
-                    alt="ECX Logo"
-                    width={157.41}
-                    height={49.36}
-                    priority
-                />
-            </Link>
-            <div className={navBarStyles.nav_items}>
-                <button
-                    className={navBarStyles.menuIcon}
-                    onClick={() => {
-                        setMbNavItems(!mbNavItems);
-                        console.log(mbNavItems);
-                    }}
-                >
-                    <svg
-                        width="32"
-                        height="33"
-                        viewBox="0 0 32 33"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M9.33333 14.0156H28"
-                            stroke="#fff"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                        <path
-                            d="M4 8.68164H28"
-                            stroke="#fff"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                        <path
-                            d="M4 19.3477H28"
-                            stroke="#fff"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                        <path
-                            d="M9.33333 24.6816H28"
-                            stroke="#fff"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                    </svg>
-                </button>
-                <div
-                    className={`
-                    ${navBarStyles.nav_items_cnt} 
-                    ${!mbNavItems ? navBarStyles.noDisplay : ""}
-                    `}
-                >
-                    <ul className={navBarStyles.nav_links}>
-                        <li>
-                            <Link href="#head">Home</Link>
-                        </li>
-                        <li>
-                            <Link href="#about">About us</Link>
-                        </li>
-                        <li>
-                            <Link href="#team">Team</Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="https://ecxunilag.medium.com/"
-                                rel="noopener noreferrer"
-                            >
-                                Blog
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="#contact">Contact</Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="https://paystack.shop/ecx-merch-store"
-                                rel="noopener noreferrer"
-                            >
-                                Shop
-                            </Link>
-                        </li>
-                    </ul>
-                    <button
-                        className={navBarStyles.nav_button_cta}
-                        // href="http://bit.ly/volunteer4ecx"
-                        // target="_blank" rel="noopener noreferrer"
-                        disabled
-                        title="Check back later. We'll announce on our socials."
-                    >
-                        Join ECX
-                    </button>
-                </div>
-            </div>
-        </nav>
-    );
+  const toggleDisplayMenu = () => setDisplayMenu(!displayMenu)
+  
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+  
+      if (scrollY > 60) {
+        setDisplayMenu(false)
+      }
+    }
+    handleScroll()
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [scrollY])
+
+  return (
+    <nav className={navBarStyles.navBar}>
+      <Link href="/">
+        <Image
+          className={navBarStyles.nav_logo}
+          src="/ecx.svg"
+          alt="ECX Logo"
+          width={175}
+          height={34}
+          priority
+        />
+      </Link>
+      <div className={navBarStyles.nav_items}>
+        <button className={navBarStyles.menuIcon} onClick={toggleDisplayMenu}>
+          <Image
+            src="/icons/menu.svg"
+            alt="menu"
+            objectFit="cover"
+            objectPosition="center"
+            fill
+          />
+        </button>
+        <ul className={`${navBarStyles.nav_list} ${!displayMenu ? navBarStyles.noDisplay : ""}`}>
+          <li>
+            <Link href="#about">About Us</Link>
+          </li>
+          <li>
+            <Link href="#sponsorship">Sponsorship</Link>
+          </li>
+          <li>
+            <Link href="https://medium.com/@engcareerexpo/" target="_blank">Blogs</Link>
+          </li>
+          <li>
+            <Link href="#footer">Contact Us</Link>
+          </li>
+          <li>
+            <Link href="https://paystack.shop/ecx-merch-store" target="_blank">Shop</Link>
+          </li>
+        </ul>
+      </div>
+
+      <Link href="https://chat.whatsapp.com/DV6PNoM5RVj1ICW9hdXW6a" target="_blank" className={`button ${navBarStyles.nav_cta}`}>
+        Join US
+      </Link>
+    </nav>
+  );
 };
 export default NavBar;

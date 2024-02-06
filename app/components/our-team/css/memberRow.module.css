@@ -1,0 +1,13 @@
+.member_row {
+    display: flex;
+    justify-content: center;
+    gap: 38px;
+    width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    .member_row {
+        display: flex;
+        gap: 20px;
+    }
+}

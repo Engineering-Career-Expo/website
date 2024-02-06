@@ -1,41 +1,50 @@
 :root {
   --white-900: #fff;
   --black-900: #000;
-  --ecx-colours-blue: #3E84F8;
-  --ecx-colours-dark-blue: #4284F7;
-  --ecx-colours-light-red: #EF4239;
-  --ecx-colours-dark-red:#ED4239;
-  --ecx-colours-orange: #FFBD08;
   --greys-004: #808080;
   --greys-005: #4D4D4D;
   --greys-006: #2B2B2B;
-  --hero-purple-001: #DBDBFE;
-  --bg-white: #fff;
-  --bg-alice-blue: #F3F8FF;
+  --ecx-colours-second-blue: #272E4B;
+  --ecx-colours-dart: #2699E3;
+  --ecx-colours-ruby: #F2443F;
+  --ecx-colours-swift: #FAB12D;
+  --ecx-colours-swift: #FAB12D;
 }
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
 }
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  font-family: var(--font-inter);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-varela-round);
 }
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
-button {
-  border: none;
-  outline: none;
-  cursor: pointer;
+button, .button {
+    font-family: var(--font-varela-round);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+button:hover, .button:hover {
+    filter: brightness(1.1);
+}
+button:active, .button:active {
+    filter: brightness(0.95);
 }
 ul {
-  list-style: none;
+    list-style: none;
 }
 input, textarea {
-  outline: none;
+    outline: none;
 }
